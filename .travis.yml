@@ -3,7 +3,7 @@ language: node_js
 addons:
   apt:
     sources:
-      - ppa:ethereum/ethereum
+      - sourceline: ppa:ethereum/ethereum
     packages:
     - ethereum
 # test on stable and LTS

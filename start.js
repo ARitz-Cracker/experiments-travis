@@ -26,7 +26,7 @@ const geth = spawn("geth", [
 const f = async function(){
 	try{
 		await new Promise((resolve, reject) => {
-			setTimeout(resolve, 2 * 60 * 1000)
+			setTimeout(resolve, 10 * 60 * 1000)
 		});
 		geth.kill();
 	}catch(ex){

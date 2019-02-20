@@ -12,9 +12,6 @@ node_js:
   - "lts/*"
   
 before_install:
-  - sudo addgroup no-internet
-  - sudo iptables -I OUTPUT 1 \! --src 127.65.82.67 -m owner --gid-owner no-internet -j DROP
-  - sudo ip6tables -I OUTPUT 1 -m owner --gid-owner no-internet -j DROP 
   - geth --datadir chain1010 init genesis.json
   - npm install arc-web3
 branches:

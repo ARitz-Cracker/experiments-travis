@@ -1,0 +1,19 @@
+language: node_js
+
+# test on stable and LTS
+node_js:
+#  - "node" #stable
+  - "lts/*"
+  
+before_install:
+  - sudo apt-get install software-properties-common
+  - sudo add-apt-repository -y ppa:ethereum/ethereum
+  - sudo apt-get update
+  - sudo apt-get install ethereum
+  - geth --datadir chain1010 init genesis.json
+branches:
+ only:
+   - master
+script: node start.js
+#after_script:
+#   - npm run travis:after

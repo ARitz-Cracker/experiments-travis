@@ -1,16 +1,22 @@
+dist: xenial
 language: node_js
-
+addons:
+  apt:
+    sources:
+      - ppa:ethereum/ethereum
+    packages:
+    - ethereum
 # test on stable and LTS
 node_js:
 #  - "node" #stable
   - "lts/*"
   
 before_install:
-  - sudo apt-get install software-properties-common
-  - sudo add-apt-repository -y ppa:ethereum/ethereum
-  - sudo apt-get update
-  - sudo apt-get install ethereum
+  - sudo addgroup no-internet
+  - sudo iptables -I OUTPUT 1 \! --src 127.65.82.67 -m owner --gid-owner no-internet -j DROP
+  - sudo ip6tables -I OUTPUT 1 -m owner --gid-owner no-internet -j DROP 
   - geth --datadir chain1010 init genesis.json
+  - npm install arc-web3
 branches:
  only:
    - master

@@ -19,7 +19,7 @@ const geth = spawn("geth", [
 	"--minerthreads=1",
 	"--gasprice",
 	"0",
-	"--etherbase=0x0000000000000000000000000000000000000000",
+	"--etherbase=0x7E5F4552091A69125d5DfCb7b8C2659029395Bdf",
 	"--ethash.dagdir",
 	"mine1010"
 ],{stdio:"inherit"});
